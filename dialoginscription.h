@@ -2,6 +2,10 @@
 #define DIALOGINSCRIPTION_H
 
 #include <QDialog>
+#include <QtDebug>
+#include <QMessageBox>
+#include <QSqlDatabase>
+#include <QSqlQuery>
 
 namespace Ui {
 class DialogInscription;
@@ -20,6 +24,7 @@ private slots:
 
 private:
     Ui::DialogInscription *ui;
+    void initchamps();
 };
 
 #endif // DIALOGINSCRIPTION_H

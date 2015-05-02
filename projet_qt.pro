@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+QT       += sql
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -16,23 +17,23 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     dialoginscription.cpp \
     dialogconnexion.cpp \
-    accueil.cpp \
     mainformulaire.cpp \
     dialogformulaire.cpp \
-    dialogstatistique.cpp
+    dialogstatistique.cpp \
+    dialogaccueil.cpp
 
 HEADERS  += mainwindow.h \
     dialoginscription.h \
     dialogconnexion.h \
-    accueil.h \
     mainformulaire.h \
     dialogformulaire.h \
-    dialogstatistique.h
+    dialogstatistique.h \
+    dialogaccueil.h
 
 FORMS    += mainwindow.ui \
     dialoginscription.ui \
     dialogconnexion.ui \
-    accueil.ui \
     mainformulaire.ui \
     dialogformulaire.ui \
-    dialogstatistique.ui
+    dialogstatistique.ui \
+    dialogaccueil.ui

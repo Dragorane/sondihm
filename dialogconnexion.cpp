@@ -1,6 +1,6 @@
 #include "dialogconnexion.h"
 #include "ui_dialogconnexion.h"
-#include "accueil.h"
+#include "dialogaccueil.h"
 
 DialogConnexion::DialogConnexion(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +21,6 @@ void DialogConnexion::on_CancelButton_clicked()
 
 void DialogConnexion::on_SubmitButton_clicked()
 {
-    accueil *dialog=new accueil;
+    DialogAccueil *dialog=new DialogAccueil;
     dialog->show();
 }

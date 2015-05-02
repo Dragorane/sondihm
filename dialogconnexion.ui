@@ -167,5 +167,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>CancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DialogConnexion</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>219</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>262</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
