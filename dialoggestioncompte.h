@@ -12,6 +12,8 @@
 #include <QtSql>
 #include <iostream>
 #include <QtGlobal>
+#include "globaldata.h"
+#include "dberrors.h"
 
 namespace Ui {
 class DialogGestionCompte;
@@ -28,11 +30,12 @@ public:
 private slots:
     void on_CancelButton_clicked();
 
+    void on_SubmitButton_clicked();
+
 private:
     Ui::DialogGestionCompte *ui;
     void closePage();
     void initchamps();
-    void erreurBdd(QSqlQuery query);
 };
 
 #endif // DIALOGGESTIONCOMPTE_H

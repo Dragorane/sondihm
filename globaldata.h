@@ -5,6 +5,5 @@
 
 extern int global_id;
 
-
 #endif
 
