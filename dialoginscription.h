@@ -36,6 +36,8 @@ private:
     QSqlDatabase db;
     void initchamps();
     void closePage();
+    void erreurRequete();
+    void erreurBdd(QSqlQuery query);
     int newIdUser();
 };
 
