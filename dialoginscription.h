@@ -13,6 +13,8 @@
 #include <iostream>
 #include <QtGlobal>
 
+#include "dberrors.h"
+
 #define q2c(string) string.toStdString()
 
 namespace Ui {
@@ -36,8 +38,6 @@ private:
     QSqlDatabase db;
     void initchamps();
     void closePage();
-    void erreurRequete();
-    void erreurBdd(QSqlQuery query);
     int newIdUser();
 };
 
