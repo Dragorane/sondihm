@@ -128,7 +128,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="ageLab">
             <property name="text">
-             <string>Age</string>
+             <string>Né(e) le</string>
             </property>
            </widget>
           </item>
@@ -196,7 +196,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="nbPersonneLabel">
             <property name="text">
-             <string>Nb personne</string>
+             <string>Nb de personnes</string>
             </property>
            </widget>
           </item>
@@ -213,7 +213,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="nbEnfLabel">
             <property name="text">
-             <string>Nb enfant</string>
+             <string>Nb d'enfants</string>
             </property>
            </widget>
           </item>
@@ -230,7 +230,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="nbAnimauxLabel">
             <property name="text">
-             <string>Nb animaux</string>
+             <string>Nb d'animaux</string>
             </property>
            </widget>
           </item>
@@ -247,7 +247,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="trancheRevenusLabel">
             <property name="text">
-             <string>Tranche revenus</string>
+             <string>Revenus annuels</string>
             </property>
            </widget>
           </item>

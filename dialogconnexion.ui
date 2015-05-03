@@ -44,7 +44,7 @@
     <item>
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>Pour vous connecter, merci de saisir votre identifiant ainsi que votre mot de passe</string>
+       <string>Connectez-vous en saisissant votre identifiant ainsi que votre mot de passe</string>
       </property>
      </widget>
     </item>
