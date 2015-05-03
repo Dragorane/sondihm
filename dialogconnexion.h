@@ -2,6 +2,8 @@
 #define DIALOGCONNEXION_H
 
 #include <QDialog>
+#include "dberrors.h"
+#include "globaldata.h"
 
 namespace Ui {
 class DialogConnexion;

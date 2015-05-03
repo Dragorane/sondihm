@@ -19,6 +19,7 @@ void DialogInscription::on_CancelButton_clicked()
 {
 	closePage();
 }
+
 //initialisation des champs du formulaire avec la bdd
 void DialogInscription::initchamps(){
 	QSqlQuery query(db);
@@ -74,6 +75,7 @@ void DialogInscription::on_SubmitButton_clicked()
     }else{
         char message[200]="Félicitations,\n\nLe nouveau sondé a bien été enregistré.\n\nNuméro du sondé : #";
         char idchar[10];
+        global_id = id;
         sprintf(idchar,"%d", id);
         strcat(idchar,"\n");
         strcat(message,idchar);
@@ -110,16 +112,4 @@ int DialogInscription::newIdUser(){
 void DialogInscription::closePage(){
 	db.close();
 	this->close();
-}
-
-//qmessagebox pour une erreur de la bdd
-void DialogInscription::erreurBdd(QSqlQuery query){
-    QSqlError err = query.lastError();
-    QMessageBox::critical(0, "Erreur interne à la base de données", err.text());
-}
-
-//qmessagebox pour une erreur d'une requete vers la bdd
-void DialogInscription::erreurRequete(){
-    QMessageBox::critical(0, qApp->trUtf8("Erreur lors de la requête"),
-            qApp->trUtf8("Impossible de faire la requête vers la base de donnée"), QMessageBox::Cancel);
 }
