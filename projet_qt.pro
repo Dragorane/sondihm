@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     dialogformulaire.cpp \
     dialogstatistique.cpp \
     dialogaccueil.cpp \
-		dberrors.cpp
+		dberrors.cpp \
+		globaldata.cpp
 
 HEADERS  += mainwindow.h \
     dialoginscription.h \
@@ -30,7 +31,8 @@ HEADERS  += mainwindow.h \
     dialogformulaire.h \
     dialogstatistique.h \
     dialogaccueil.h \
-		dberrors.h
+		dberrors.h \
+		globaldata.h
 
 FORMS    += mainwindow.ui \
     dialoginscription.ui \
