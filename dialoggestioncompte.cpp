@@ -24,16 +24,17 @@ void DialogGestionCompte::initchamps(){
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery query(db);
     QString req="select * from Personne where identifiantPers=:id";
-    req.prepare(req);
-    req.bindValue(":id",2093);
+    query.prepare(req);
+    query.bindValue(":id",2093);
     if(!query.exec()){
         erreurBdd(query);
     }else{
         query.next();
-        ui->nbAnimauxSpinBox->setValue(query.record().indexOf("nbAnimPers"));
-        ui->nbEnfantSpinBox->setValue(query.record().indexOf("nbEnfPers"));
-        ui->nbPersonneSpinBox->setValue(query.record().indexOf("nbhabPers"));
-        if(query.record().indexOf("sexePers")=="F"){
+        ui->nbAnimauxSpinBox->setValue(query.value(query.record().indexOf("nbAnimPers")).toInt());
+        ui->nbEnfantSpinBox->setValue(query.value(query.record().indexOf("nbEnfPers")).toInt());
+        ui->nbPersonneSpinBox->setValue(query.value(query.record().indexOf("nbhabPers")).toInt());
+        QString sexe=query.value(query.record().indexOf("sexePers")).toString();
+        if(sexe=="F"){
 
         }else{
 

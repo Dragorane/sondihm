@@ -19,7 +19,7 @@ private:
     Ui::DialogAccueil *ui;
 
 private slots:
-    void on_GestionCompte_clicked();
+    void slotgestioncompte();
 
 };
 

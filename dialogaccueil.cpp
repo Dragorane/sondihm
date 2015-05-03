@@ -14,7 +14,7 @@ DialogAccueil::~DialogAccueil()
     delete ui;
 }
 
-void DialogAccueil::on_GestionCompte_clicked(){
+void DialogAccueil::slotgestioncompte(){
     DialogGestionCompte *dialog=new DialogGestionCompte;
     dialog->show();
 }
