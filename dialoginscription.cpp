@@ -89,7 +89,7 @@ void DialogInscription::on_SubmitButton_clicked()
 					"cliquez sur Cancel pour quitter."), QMessageBox::Cancel);
 	}else{
 		QMessageBox::information(this, "Inscription validée",
-				"Félicitations,\n\nLe nouveau sondé a bien ete enregistré...\n\nNuméro du sondé : #_____ \n\n");
+				QString("Félicitations,\n\nLe nouveau sondé a bien été enregistré.\n\nNuméro du sondé : #%1\n\b").arg(id));
 		qDebug()<<id;
 	}
 	closePage();
