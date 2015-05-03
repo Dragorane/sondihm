@@ -63,5 +63,5 @@ CREATE TABLE Valeurs (
   boolval bool,
   idChamps INT NOT NULL,
   idPers INT NOT NULL,
-  FOREIGN KEY (idChamps) REFERENCES Champs (idChamps)
+  FOREIGN KEY (idChamps) REFERENCES Champs (idChamps),
   FOREIGN KEY (idPers) REFERENCES Personne (idPers));
