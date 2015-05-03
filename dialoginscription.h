@@ -14,6 +14,7 @@
 #include <QtGlobal>
 
 #include "dberrors.h"
+#include "globaldata.h"
 
 #define q2c(string) string.toStdString()
 

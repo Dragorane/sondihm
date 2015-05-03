@@ -40,8 +40,10 @@ void DialogConnexion::on_SubmitButton_clicked() {
 			ui->idLine->repaint();
 		}
 		else if(query.value(0).toInt() == 1) {
+			global_id = tmp_id;
 			DialogAccueil *dialog=new DialogAccueil;
 			dialog->show();
+			this->close();
 		}
 	}
 }

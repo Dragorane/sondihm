@@ -75,6 +75,7 @@ void DialogInscription::on_SubmitButton_clicked()
     }else{
         char message[200]="Félicitations,\n\nLe nouveau sondé a bien été enregistré.\n\nNuméro du sondé : #";
         char idchar[10];
+        global_id = id;
         sprintf(idchar,"%d", id);
         strcat(idchar,"\n");
         strcat(message,idchar);
