@@ -71,9 +71,13 @@ void DialogInscription::on_SubmitButton_clicked()
 	query.bindValue(":idRev",ui->trancheRevenusComboBox->currentIndex());
 	if(!query.exec()){
         erreurBdd(query);
-	}else{
-        QMessageBox::information(this, "Inscription validee",
-                QString("Felicitations,\n\nLe nouveau sonde a bien ete enregistre.\n\nNumero du sonde : #%1\n\b").arg(id));
+    }else{
+        char message[200]="Félicitations,\n\nLe nouveau sondé a bien été enregistré.\n\nNuméro du sondé : #";
+        char idchar[10];
+        sprintf(idchar,"%d", id);
+        strcat(idchar,"\n");
+        strcat(message,idchar);
+        QMessageBox::information(this, this->trUtf8("Inscription validée"),this->trUtf8(message));
 	}
 	closePage();
 }
@@ -111,11 +115,11 @@ void DialogInscription::closePage(){
 //qmessagebox pour une erreur de la bdd
 void DialogInscription::erreurBdd(QSqlQuery query){
     QSqlError err = query.lastError();
-    QMessageBox::critical(0, "Erreur interne a la base de donnees", err.text());
+    QMessageBox::critical(0, "Erreur interne à la base de données", err.text());
 }
 
 //qmessagebox pour une erreur d'une requete vers la bdd
 void DialogInscription::erreurRequete(){
-    QMessageBox::critical(0, qApp->tr("Erreur lors de la requete"),
-            qApp->tr("Impossible de faire la requete vers la base de donnée"), QMessageBox::Cancel);
+    QMessageBox::critical(0, qApp->trUtf8("Erreur lors de la requête"),
+            qApp->trUtf8("Impossible de faire la requête vers la base de donnée"), QMessageBox::Cancel);
 }
