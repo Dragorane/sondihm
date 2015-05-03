@@ -6,7 +6,18 @@ DialogInscription::DialogInscription(QWidget *parent) :
 	ui(new Ui::DialogInscription)
 {
 	ui->setupUi(this);
-	initchamps();
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("ihm.db");
+    if (!db.open()) {
+        qDebug() << db.lastError().text();
+
+        QMessageBox::critical(0, qApp->tr("Impossible d'ouvrir la base de donnees"),
+                qApp->tr("Impossible d'ouvrir la base de donnees.\n"
+                    "Ce programme a besoin d'une base de donnee' SQLite support.\n\n"
+                    "cliquez sur Cancel pour quitter."), QMessageBox::Cancel);
+    }else{
+        initchamps();
+    }
 }
 
 DialogInscription::~DialogInscription()
@@ -16,22 +27,12 @@ DialogInscription::~DialogInscription()
 
 void DialogInscription::on_CancelButton_clicked()
 {
-	this->close();
+    closePage();
 }
 
 void DialogInscription::initchamps(){
 	//ajout de données non inclu dans la bdd
 	// connexion à la base de donnee
-	QSqlDatabase db = QSqlDatabase::addDatabase( "QSQLITE" );
-	db.setDatabaseName("ihm.db");
-	if (!db.open()) {
-		qDebug() << db.lastError().text();
-
-		QMessageBox::critical(0, qApp->tr("Impossible d'ouvrir la base de donnees"),
-				qApp->tr("Impossible d'ouvrir la base de donnees.\n"
-					"Ce programme a besoin d'une base de donnee' SQLite support.\n\n"
-					"cliquez sur Cancel pour quitter."), QMessageBox::Cancel);
-	}else{
 		QSqlQuery query(db);
 		QString req="select * from Revenu";
 		query.prepare(req);
@@ -59,41 +60,37 @@ void DialogInscription::initchamps(){
 			}
 			ui->etatCivilCb->addItems(Etat_civil);
 		}
-		db.close();
-	}
 }
 
 void DialogInscription::on_SubmitButton_clicked()
 {
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("ihm.db");
-	if (!db.open()) {
-		qDebug() << db.lastError().text();
-
-		QMessageBox::critical(0, qApp->tr("Impossible d'ouvrir la base de donnees"),
-				qApp->tr("Impossible d'ouvrir la base de donnees.\n"
-					"Ce programme a besoin d'une base de donnee' SQLite support.\n\n"
-					"cliquez sur Cancel pour quitter."), QMessageBox::Cancel);
-
-	}else{
 		QSqlQuery query(db);
-		QString req="INSERT INTO Personne(identifiantPers, datenaisPers, sexePers, nbhabPers, nbEnfPers, nbAnimPers, idEc, idRev) values(:id, :date, :sexe, :nbhabpers, :nbenf, :idEc, :idRev)";
+        QString req="INSERT INTO Personne(identifiantPers, datenaisPers, sexePers, nbhabPers, nbEnfPers, nbAnimPers, idEc, idRev) values(:id, :date, :sexe, :nbhabpers, :nbenf, :nbanim, :idEc, :idRev)";
 		query.prepare(req);
 		int id=newIdUser();
 		if(id!=0){
 			query.bindValue(":id",id);
+            qDebug()<<id;
 		}
 		query.bindValue(":date",ui->dateNais->date().toString("yyyy/MM/dd"));
+        qDebug()<<ui->dateNais->date().toString("yyyy/MM/dd");
 		if(ui->sexeCb->currentText() == "Femme"){
 			query.bindValue(":sexe","F");
+            qDebug()<<"F";
 		}else{
 			query.bindValue(":sexe","H");
+            qDebug()<<"H";
 		}
 		query.bindValue(":nbhabpers",ui->nbPersonneSpinBox->value());
+        qDebug()<<ui->nbPersonneSpinBox->value();
 		query.bindValue(":nbenf",ui->nbEnfantSpinBox->value());
-		query.bindValue(":idEc",ui->etatCivilCb->currentIndex());
-		query.bindValue(":idRev",ui->trancheRevenusComboBox->currentIndex());
+        qDebug()<<ui->nbEnfantSpinBox->value();
+        query.bindValue(":nbanim",ui->nbAnimauxSpinBox->value());
 
+		query.bindValue(":idEc",ui->etatCivilCb->currentIndex());
+        qDebug()<<ui->etatCivilCb->currentIndex();
+		query.bindValue(":idRev",ui->trancheRevenusComboBox->currentIndex());
+        qDebug()<<ui->trancheRevenusComboBox->currentIndex();
 		if(!query.exec()){
 			qDebug() << db.lastError().text();
 			QMessageBox::critical(0, qApp->tr("Erreur lors de l'enregistrement"),
@@ -104,42 +101,36 @@ void DialogInscription::on_SubmitButton_clicked()
 			QMessageBox::information(this, "Inscription validee",
 					"Felicitation,\n\nLe nouveau sonde a bien ete enregistre...\n\n Numero du sonde : #_____ \n\n");
 			qDebug()<<id;
-		}
-	}
-	db.close();
-	this->close();
+        }
+    closePage();
 }
 
 //fonction generant l'identifiant unique d'un utilisateur
 int DialogInscription::newIdUser(){
 	int High=9999, Low=1000, id;
-	bool verif=false;
-	//connection bdd
-	QSqlDatabase db = QSqlDatabase::addDatabase( "QSQLITE" );
-	db.setDatabaseName("ihm.db");
-	if (!db.open()) {
-		qDebug() << db.lastError().text();
-		id = 0;
-	}else{
-		//generation et requete pour verifier si ce n'est pas deja prit
-		QSqlQuery query(db);
-		QString req="select count(*) from Personne where identifiantPers=:id";
-		query.prepare(req);
-		while (verif==false){
-			id = qrand() % ((High + 1) - Low) + Low;
-			query.bindValue(":id",id);
-			if(!query.exec()){
-				qDebug() << query.lastError();
-				verif=true;
-				id=0;
-			}else{
-				query.next();
-				if(0==query.value(0).toInt()){
-					verif=true;
-				}
-			}
-		}
-	}
-	db.close();
+    bool verif=false;
+    //generation et requete pour verifier si ce n'est pas deja prit
+    QSqlQuery query(db);
+    QString req="select count(*) from Personne where identifiantPers=:id";
+    query.prepare(req);
+    while (verif==false){
+        id = qrand() % ((High + 1) - Low) + Low;
+        query.bindValue(":id",id);
+        if(!query.exec()){
+            qDebug() << query.lastError();
+            verif=true;
+            id=0;
+        }else{
+            query.next();
+            if(0==query.value(0).toInt()){
+                verif=true;
+            }
+        }
+    }
 	return id;
+}
+
+void DialogInscription::closePage(){
+    db.close();
+    this->close();
 }

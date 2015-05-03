@@ -29,12 +29,13 @@ public:
 
 private slots:
     void on_CancelButton_clicked();
-
     void on_SubmitButton_clicked();
 
 private:
     Ui::DialogInscription *ui;
+    QSqlDatabase db;
     void initchamps();
+    void closePage();
     int newIdUser();
 };
 
