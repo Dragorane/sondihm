@@ -3,24 +3,45 @@
 #include "dialogaccueil.h"
 
 DialogConnexion::DialogConnexion(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DialogConnexion)
+	QDialog(parent),
+	ui(new Ui::DialogConnexion)
 {
-    ui->setupUi(this);
+	ui->setupUi(this);
 }
 
 DialogConnexion::~DialogConnexion()
 {
-    delete ui;
+	delete ui;
 }
 
 void DialogConnexion::on_CancelButton_clicked()
 {
-    this->close();
+	this->close();
 }
 
-void DialogConnexion::on_SubmitButton_clicked()
-{
-    DialogAccueil *dialog=new DialogAccueil;
-    dialog->show();
+void DialogConnexion::on_SubmitButton_clicked() {
+
+	int tmp_id = ui->idLine->text().toInt();
+	QSqlDatabase db = QSqlDatabase::database();
+	
+	QSqlQuery query(db);
+	QString req="select count(*) from Personne where identifiantPers=:id";
+
+	query.prepare(req);
+	query.bindValue(":id", tmp_id);
+	
+	if (!query.exec()) {
+		erreurRequete();
+	}
+	else {
+		query.next();
+		if(query.value(0).toInt() == 0){
+			erreurId();
+			ui->idLine->repaint();
+		}
+		else if(query.value(0).toInt() == 1) {
+			DialogAccueil *dialog=new DialogAccueil;
+			dialog->show();
+		}
+	}
 }

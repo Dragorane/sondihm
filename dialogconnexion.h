@@ -2,6 +2,7 @@
 #define DIALOGCONNEXION_H
 
 #include <QDialog>
+#include "dberrors.h"
 
 namespace Ui {
 class DialogConnexion;
