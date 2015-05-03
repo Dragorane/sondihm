@@ -11,6 +11,7 @@
 #include <QCoreApplication>
 #include <QtSql>
 #include <iostream>
+#include <QtGlobal>
 
 #define q2c(string) string.toStdString()
 
@@ -34,6 +35,7 @@ private slots:
 private:
     Ui::DialogInscription *ui;
     void initchamps();
+    int newIdUser();
 };
 
 #endif // DIALOGINSCRIPTION_H

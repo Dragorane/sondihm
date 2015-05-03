@@ -132,16 +132,6 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="ageSb">
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>30</height>
-             </size>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="0">
            <widget class="QLabel" name="etatCivilLab">
             <property name="text">
@@ -151,6 +141,16 @@
           </item>
           <item row="2" column="1">
            <widget class="QComboBox" name="etatCivilCb">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>30</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDateEdit" name="dateNais">
             <property name="maximumSize">
              <size>
               <width>200</width>
