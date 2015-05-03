@@ -4,8 +4,15 @@
 #include <QDialog>
 #include <QtDebug>
 #include <QMessageBox>
+#include <QString>
+#include <QComboBox>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QCoreApplication>
+#include <QtSql>
+#include <iostream>
+
+#define q2c(string) string.toStdString()
 
 namespace Ui {
 class DialogInscription;
@@ -21,6 +28,8 @@ public:
 
 private slots:
     void on_CancelButton_clicked();
+
+    void on_SubmitButton_clicked();
 
 private:
     Ui::DialogInscription *ui;
