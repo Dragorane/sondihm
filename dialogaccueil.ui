@@ -142,5 +142,25 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionGestion_Compte_2</sender>
+   <signal>triggered()</signal>
+   <receiver>DialogAccueil</receiver>
+   <slot>slotgestioncompte()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotgestioncompte()</slot>
+ </slots>
 </ui>

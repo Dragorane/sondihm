@@ -46,6 +46,12 @@ dialogstatistique.cpp : implémentation des fonctions
 dialogstatistique.h : header de la class
 dialogstatistique.ui design de la class
 
+class dialoggestioncompte
+Dialog permettant de modifier les informations d'un sonde.
+dialoggestioncompte.cpp : implémentation des fonctions
+dialoggestioncompte.h : header de la class
+dialoggestioncompte.ui design de la class
+
 ----------Description de la base de donnée----------
 Les fichiers de création de la base de données sont contenus dans le dossier bdd/
 

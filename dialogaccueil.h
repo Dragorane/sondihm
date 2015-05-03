@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::DialogAccueil *ui;
+
+private slots:
+    void on_GestionCompte_clicked();
+
 };
 
 #endif // DIALOGACCUEIL_H

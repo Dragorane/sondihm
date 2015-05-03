@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     mainformulaire.cpp \
     dialogformulaire.cpp \
     dialogstatistique.cpp \
-    dialogaccueil.cpp
+    dialogaccueil.cpp \
+    dialoggestioncompte.cpp
 
 HEADERS  += mainwindow.h \
     dialoginscription.h \
@@ -28,7 +29,8 @@ HEADERS  += mainwindow.h \
     mainformulaire.h \
     dialogformulaire.h \
     dialogstatistique.h \
-    dialogaccueil.h
+    dialogaccueil.h \
+    dialoggestioncompte.h
 
 FORMS    += mainwindow.ui \
     dialoginscription.ui \
@@ -36,4 +38,5 @@ FORMS    += mainwindow.ui \
     mainformulaire.ui \
     dialogformulaire.ui \
     dialogstatistique.ui \
-    dialogaccueil.ui
+    dialogaccueil.ui \
+    dialoggestioncompte.ui

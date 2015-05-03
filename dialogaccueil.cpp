@@ -1,5 +1,6 @@
 #include "dialogaccueil.h"
 #include "ui_dialogaccueil.h"
+#include "dialoggestioncompte.h"
 
 DialogAccueil::DialogAccueil(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +12,9 @@ DialogAccueil::DialogAccueil(QWidget *parent) :
 DialogAccueil::~DialogAccueil()
 {
     delete ui;
+}
+
+void DialogAccueil::on_GestionCompte_clicked(){
+    DialogGestionCompte *dialog=new DialogGestionCompte;
+    dialog->show();
 }

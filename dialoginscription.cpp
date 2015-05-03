@@ -6,7 +6,7 @@ DialogInscription::DialogInscription(QWidget *parent) :
 	ui(new Ui::DialogInscription)
 {
 	ui->setupUi(this);
-	db = QSqlDatabase::database();
+    db = QSqlDatabase::database();
 	initchamps();
 }
 
