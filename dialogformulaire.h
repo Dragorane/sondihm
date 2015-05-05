@@ -43,6 +43,9 @@ private:
     void initChamps();
     void initSousChamps(int id, QLabel * lab);
     void initspinbox(int id,QLabel * lab);
+
+private slots:
+    void on_SubmitButton_clicked();
 };
 
 #endif // DIALOGFORMULAIRE_H

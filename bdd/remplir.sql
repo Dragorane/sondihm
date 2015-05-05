@@ -39,6 +39,9 @@ INSERT into Champs values(20, "Nature", 1, 0, 19, 3);
 INSERT into Champs values(21, "Aux fruits avec morceaux", 1, 0, 19, 3);
 INSERT into Champs values(22, "Mixés/Brassés", 1, 0, 19, 3);
 INSERT into Champs values(23, "Aromatisés", 1, 0, 19, 3);
+INSERT into Champs values(24, "Bifidus Nature", 1, 0, 19, 3);
+INSERT into Champs values(25, "Aux Fruits", 1, 0, 19, 3);
+INSERT into Champs values(26, "Anti-Cholesterol", 1, 0, 19, 3);
 INSERT into Champs values(27, "À boire", 1, 0, 19, 3);
 INSERT into Champs values(28, "Allégés", 1, 0, 19, 3);
 
@@ -47,6 +50,9 @@ INSERT into Champs values(31, "Nature", 1, 0, 30, 3);
 INSERT into Champs values(32, "Aux fruits avec morceaux", 1, 0, 30, 3);
 INSERT into Champs values(33, "Mixés/Brassés", 1, 0, 30, 3);
 INSERT into Champs values(34, "Aromatisés", 1, 0, 30, 3);
+INSERT into Champs values(35, "Bifidus Nature", 1, 0, 19, 3);
+INSERT into Champs values(36, "Aux Fruits", 1, 0, 19, 3);
+INSERT into Champs values(37, "Anti-Cholesterol", 1, 0, 19, 3);
 INSERT into Champs values(38, "À boire", 1, 0, 30, 3);
 INSERT into Champs values(39, "Allégés", 1, 0, 30, 3);
 
@@ -65,13 +71,20 @@ INSERT into Valeurs values(9,NULL,0,NULL, 20, 0);
 INSERT into Valeurs values(10,NULL,6,NULL, 21, 0);
 INSERT into Valeurs values(11,NULL,20,NULL, 22, 0);
 INSERT into Valeurs values(12,NULL,10,NULL, 23, 0);
+INSERT into Valeurs values(15,NULL,6,NULL, 24, 0);
+INSERT into Valeurs values(16,NULL,20,NULL, 25, 0);
+INSERT into Valeurs values(17,NULL,10,NULL, 26, 0);
 INSERT into Valeurs values(13,NULL,20,NULL, 27, 0);
 INSERT into Valeurs values(14,NULL,10,NULL, 28, 0);
 
-INSERT into Valeurs values(15,NULL,0,NULL, 31, 0);
-INSERT into Valeurs values(16,NULL,6,NULL, 32, 0);
-INSERT into Valeurs values(17,NULL,20,NULL, 33, 0);
+INSERT into Valeurs values(30,NULL,0,NULL, 31, 0);
+INSERT into Valeurs values(31,NULL,6,NULL, 32, 0);
+INSERT into Valeurs values(32,NULL,20,NULL, 33, 0);
 INSERT into Valeurs values(18,NULL,10,NULL, 34, 0);
+INSERT into Valeurs values(21,NULL,6,NULL, 35, 0);
+INSERT into Valeurs values(22,NULL,20,NULL, 36, 0);
+INSERT into Valeurs values(23,NULL,10,NULL, 37, 0);
 INSERT into Valeurs values(19,NULL,20,NULL, 38, 0);
 INSERT into Valeurs values(20,NULL,10,NULL, 39, 0);
+
 

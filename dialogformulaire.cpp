@@ -139,3 +139,7 @@ void DialogFormulaire::initspinbox(int id, QLabel *lab){
         }
     }
 }
+
+void DialogFormulaire::on_SubmitButton_clicked(){
+    qDebug()<<"test";
+}

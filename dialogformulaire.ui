@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>692</width>
-    <height>439</height>
+    <height>532</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@
       <x>10</x>
       <y>80</y>
       <width>671</width>
-      <height>691</height>
+      <height>371</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -58,6 +58,32 @@
       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
      </property>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="CancelButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>460</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Annuler</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SubmitButton">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>460</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Valider</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -73,5 +99,41 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>CancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DialogFormulaire</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>509</x>
+     <y>831</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>445</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SubmitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DialogFormulaire</receiver>
+   <slot>on_SubmitButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>609</x>
+     <y>831</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>445</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_SubmitButton_clicked()</slot>
+ </slots>
 </ui>
