@@ -19,7 +19,7 @@ INSERT into Type_Champs values (6,"checkbox");
 
 INSERT into Personne values(0,0000,"","01/01/2001","H",0,0,0,1,1);
 
-INSERT into Formulaire values(1,"Consommation de yaourts du foyer",1,"",1,0);
+INSERT into Formulaire values(0,"Consommation de yaourts du foyer",1,"",1,0);
 
 INSERT into Champs values(1,"Quelles marques de yaourts connaissez vous ?",1,1,NULL,6);
 INSERT into Champs values(2,"Nestlé",1,1,1,6);

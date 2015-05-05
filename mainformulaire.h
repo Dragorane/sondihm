@@ -2,6 +2,15 @@
 #define MAINFORMULAIRE_H
 
 #include <QMainWindow>
+#include <QtDebug>
+#include <QMessageBox>
+#include <QString>
+#include <QComboBox>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QCoreApplication>
+#include <QtSql>
+#include <iostream>
 
 namespace Ui {
 class MainFormulaire;
@@ -23,6 +32,7 @@ private slots:
 
 private:
     Ui::MainFormulaire *ui;
+    void initForm();
 };
 
 #endif // MAINFORMULAIRE_H
