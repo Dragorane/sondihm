@@ -48,6 +48,7 @@ DROP TABLE IF EXISTS Champs ;
 CREATE TABLE Champs (
   idChamps INTEGER PRIMARY KEY, 
   labChamps VARCHAR(200),
+  ordre INT,
   idForm INT NOT NULL,
   idSousChamp INT,
   idTC INT NOT NULL,
