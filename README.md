@@ -77,16 +77,17 @@ Personne (idPers INTEGER PRIMARY KEY, identifiantPers INT, mdpPers VARCHAR(50), 
          FOREIGN KEY (idEc) REFERENCES Etat_Civil (idEc), FOREIGN KEY (idRev) REFERENCES Revenu (idRev));
 
 Formulaire : table contenant un formualaire : id, nom du formulaire, stat (bool vrai= stat dispo, false: pas disponible),
+					      descForm TEXT : champs de descritpion d'un formulaire,
                                               clé étrangère vers la société qui demande le sondage,
                                               clé étrangère vers la personne qui créé le formulaire.
-Formulaire (idForm INTEGER PRIMARY KEY, nomForm VARCHAR(200), statForm BOOL, idSoc INT NOT NULL, idPers INT NOT NULL,
+Formulaire (idForm INTEGER PRIMARY KEY, nomForm VARCHAR(200), statForm BOOL, descForm TEXT, idSoc INT NOT NULL, idPers INT NOT NULL,
             FOREIGN KEY (idSoc) REFERENCES Societe (idSoc), FOREIGN KEY (idPers) REFERENCES Personne (idPers));
 
-Champs : table contenant les champs d'un formulaire : id, label du champs, clé étrangère vers le formulaire,
+Champs : table contenant les champs d'un formulaire : id, label du champs, l'ordre d'affichage, clé étrangère vers le formulaire,
 						      clès étrangère vers un autre champs (si il s'agit d'un sous champs, 
 						      comme une checkbox),
 						      clé étrangère vers le type de champs.
-Champs (idChamps INTEGER PRIMARY KEY, labChamps VARCHAR(200), idForm INT NOT NULL, idSousChamp INT,
+Champs (idChamps INTEGER PRIMARY KEY, labChamps VARCHAR(200), ordre INT, idForm INT NOT NULL, idSousChamp INT,
        idTC INT NOT NULL, FOREIGN KEY (idForm) REFERENCES Formulaire (idForm),
        FOREIGN KEY (idSousChamp) REFERENCES Champs (idChamps), FOREIGN KEY (idTC) REFERENCES Type_Champs (idTC));  
 
