@@ -16,6 +16,7 @@ INSERT into Type_Champs values (3,"spinbox");
 INSERT into Type_Champs values (4,"doublespinboxe");
 INSERT into Type_Champs values (5,"radiobox");
 INSERT into Type_Champs values (6,"checkbox");
+INSERT into Type_Champs values (7,"combobox");
 
 INSERT into Personne values(0,0000,"","01/01/2001","H",0,0,0,1,1);
 
@@ -41,5 +42,4 @@ INSERT into Champs values(16,"Velouté Fruix",1,1,10,6);
 INSERT into Champs values(17,"TailleFine",1,1,10,6);
 INSERT into Champs values(18,"Autres",1,1,10,6);
 
-INSERT into Champs values(19,"Combien de yaourt(s) achetez vous par semaine ?",3,1,NULL,3);
 
