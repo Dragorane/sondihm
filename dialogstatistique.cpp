@@ -59,7 +59,12 @@ void DialogStatistique::getStats() {
 	
 	int tab_ya[nb_yaourts];
 	int tab_aubonlait[nb_yaourts];
+	int tranches = 5, j;
+	int tab_tranches[tranches];
 	
+	for(i = 0; i < tranches; i++) {
+		tab_tranches[i] = 0;
+	}
 	
 	for(i = 0; i < nb_yaourts; i++) {
 		// consommation moyenne de tel ou tel type de yaourt (ex. yaourts aux fruits mixés)
@@ -80,7 +85,41 @@ void DialogStatistique::getStats() {
 			return;
 		}
 		tab_aubonlait[i] = query.next();
+		for (j = 0; j < 5; j++) {
+			// rapport entre les revenus du foyer et la consommation totale de yaourts
+			QString req_tranches = "select SUM(valeurVal) from Valeurs where idChamps = :id and idUser in (select idUser from Personne where idRev = :j";
+			query.bindValue(":id", 20+i);
+			query.bindValue(":j", j);
+			query.prepare(req_tranches);
+			if(!query.exec()){
+				erreurBdd(query);
+				return;
+			}
+			tab_tranches[j] += query.next();
+		}
 	}
+	
+	int m, f;
+	
+	// plus de femmes consomment des yaourts allégés que d'hommes ?
+	bool fmtm = 0;
+	
+	QString req_m = "select count(*) from Personne where idPers in (select idPers from Valeurs where valeurVal != 0 and idChamps = 28) and sexePers = 'M'";
+	query.prepare(req_m);
+	if(!query.exec()){
+		erreurBdd(query);
+		return;
+	}
+	m = query.next();
+	QString req_f = "select count(*) from Personne where idPers in (select idPers from Valeurs where valeurVal != 0 and idChamps = 28) and sexePers = 'F'";
+	query.prepare(req_f);
+	if(!query.exec()){
+		erreurBdd(query);
+		return;
+	}
+	f = query.next();
+	
+	(f > m) ? fmtm = 1 : fmtm = 0;
 	
 	/*QString req_y1 = "select SUM(valeurVal) from Valeurs where idChamps = 20"; // Nature
 	if(!query.exec()){
