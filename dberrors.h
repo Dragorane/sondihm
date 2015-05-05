@@ -20,5 +20,7 @@ void erreurRequete();
 void erreurBdd(QSqlQuery query);
 
 void erreurId();
+
+void erreurAccesForm();
     
 #endif
