@@ -166,7 +166,7 @@ void DialogFormulaire::on_SubmitButton_clicked(){
 }
 
 void DialogFormulaire::insertcheckbox(){
-    int i;
+    unsigned int i;
     int id=recuperIdPers();
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery query(db);
@@ -182,7 +182,7 @@ void DialogFormulaire::insertcheckbox(){
     }
 }
 void DialogFormulaire::insertspinbox(){
-    int i;
+    unsigned int i;
     int id=recuperIdPers();
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery query(db);

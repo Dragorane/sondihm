@@ -23,6 +23,7 @@
 #include <QComboBox>
 #include <QFormLayout>
 #include <vector>
+#include <QScrollArea>
 #include "globaldata.h"
 #include "dberrors.h"
 
