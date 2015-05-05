@@ -22,6 +22,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
+#include <vector>
 #include "globaldata.h"
 #include "dberrors.h"
 
@@ -36,6 +37,9 @@ class DialogFormulaire : public QMainWindow
 public:
     explicit DialogFormulaire(QWidget *parent = 0);
     ~DialogFormulaire();
+    std::vector<QCheckBox *> lescheckbox;
+    std::vector<QSpinBox *> lesspins;
+    std::vector<QRadioButton *> lesradiosbutt;
 
 private:
     Ui::DialogFormulaire *ui;
@@ -43,6 +47,9 @@ private:
     void initChamps();
     void initSousChamps(int id, QLabel * lab);
     void initspinbox(int id,QLabel * lab);
+    void insertcheckbox();
+    void insertspinbox();
+    void insertradiobox();
 
 private slots:
     void on_SubmitButton_clicked();
