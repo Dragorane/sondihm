@@ -2,6 +2,7 @@
 #include "ui_mainformulaire.h"
 #include "dialogformulaire.h"
 #include "dialogstatistique.h"
+#include "dialogcreateform.h"
 
 MainFormulaire::MainFormulaire(QWidget *parent):
     QMainWindow(parent),
@@ -26,7 +27,10 @@ void MainFormulaire::on_AnswerButton_clicked() {
     dialog->show();
 }
 
-void MainFormulaire::on_CreateButton_clicked() {}
+void MainFormulaire::on_CreateButton_clicked() {
+    DialogCreateForm *dialog=new DialogCreateForm;
+    dialog->show();
+}
 
 MainFormulaire::~MainFormulaire() {
     delete ui;

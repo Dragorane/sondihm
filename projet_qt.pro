@@ -26,6 +26,7 @@ SOURCES += main.cpp\
     dberrors.cpp \
     globaldata.cpp \
     qcustomplot.cpp \
+    dialogcreateform.cpp
 
 HEADERS  += mainwindow.h \
     dialoginscription.h \
@@ -38,6 +39,7 @@ HEADERS  += mainwindow.h \
     globaldata.h \
     dialoggestioncompte.h \
     qcustomplot.h \
+    dialogcreateform.h
 
 FORMS    += mainwindow.ui \
     dialoginscription.ui \
@@ -47,3 +49,4 @@ FORMS    += mainwindow.ui \
     dialogstatistique.ui \
     dialogaccueil.ui \
     dialoggestioncompte.ui \
+    dialogcreateform.ui

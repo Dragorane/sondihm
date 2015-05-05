@@ -26,42 +26,52 @@ INSERT into Champs values(1,"Quelles marques de yaourts connaissez-vous ?",1,0,N
 INSERT into Champs values(2,"Nestlé",1,0,1,6);
 INSERT into Champs values(3,"Yoplait",1,0,1,6);
 INSERT into Champs values(4,"Danone",1,0,1,6);
-INSERT into Champs values(5,"Aubonlait",0,1,1,6);
-INSERT into Champs values(6,"Activia",1,0,1,6);
-INSERT into Champs values(7,"Velouté Fruix",1,0,1,6);
-INSERT into Champs values(8,"TailleFine",1,0,1,6);
-INSERT into Champs values(9,"Autres",1,0,1,6);
+INSERT into Champs values(5,"Aubonlait",1,0,1,6);
 
 INSERT into Champs values(10, "Combien de fois avez-vous acheté des yaourts de chacune de ses marques au cours des 6 derniers mois ?",2,0,NULL,3);
 INSERT into Champs values(11,"Nestlé",1,0,10,3);
 INSERT into Champs values(12,"Yoplait",1,0,10,3);
 INSERT into Champs values(13,"Danone",1,0,10,3);
 INSERT into Champs values(14,"Aubonlait",1,0,10,3);
-INSERT into Champs values(15,"Activia",1,0,10,3);
-INSERT into Champs values(16,"Velouté Fruix",1,0,10,3);
-INSERT into Champs values(17,"TailleFine",1,0,10,3);
-INSERT into Champs values(18,"Autres",1,0,10,3);
 
 INSERT into Champs values(19, "Combien consommez-vous de yaourts de chaque type par mois ?",1,1,NULL,3);
 INSERT into Champs values(20, "Nature", 1, 0, 19, 3);
 INSERT into Champs values(21, "Aux fruits avec morceaux", 1, 0, 19, 3);
 INSERT into Champs values(22, "Mixés/Brassés", 1, 0, 19, 3);
 INSERT into Champs values(23, "Aromatisés", 1, 0, 19, 3);
-INSERT into Champs values(24, "Au bifidus nature", 1, 0, 19, 3);
-INSERT into Champs values(25, "Aux fruits", 1, 0, 19, 3);
-INSERT into Champs values(26, "Anti-cholestérol", 1, 0, 19, 3);
 INSERT into Champs values(27, "À boire", 1, 0, 19, 3);
 INSERT into Champs values(28, "Allégés", 1, 0, 19, 3);
-INSERT into Champs values(29, "Autres", 1, 0, 19, 3);
 
 INSERT into Champs values(30, "Quel pourcentage de ceux-ci étaient de marque Aubonlait ?", 1, 0, NULL, 3);
 INSERT into Champs values(31, "Nature", 1, 0, 30, 3);
 INSERT into Champs values(32, "Aux fruits avec morceaux", 1, 0, 30, 3);
 INSERT into Champs values(33, "Mixés/Brassés", 1, 0, 30, 3);
 INSERT into Champs values(34, "Aromatisés", 1, 0, 30, 3);
-INSERT into Champs values(35, "Au bifidus nature", 1, 0, 30, 3);
-INSERT into Champs values(36, "Aux fruits", 1, 0, 30, 3);
-INSERT into Champs values(37, "Anti-cholestérol", 1, 0, 30, 3);
 INSERT into Champs values(38, "À boire", 1, 0, 30, 3);
 INSERT into Champs values(39, "Allégés", 1, 0, 30, 3);
-INSERT into Champs values(40, "Autres", 1, 0, 30, 3);
+
+--id, txt, int, bool, idchamps, idpers,
+INSERT into Valeurs values(1,NULL,NULL,1, 2, 0);
+INSERT into Valeurs values(2,NULL,NULL,0, 3, 0);
+INSERT into Valeurs values(3,NULL,NULL,1, 4, 0);
+INSERT into Valeurs values(4,NULL,NULL,0, 5, 0);
+
+INSERT into Valeurs values(6,NULL,6,NULL, 11, 0);
+INSERT into Valeurs values(7,NULL,20,NULL, 12, 0);
+INSERT into Valeurs values(8,NULL,10,NULL, 13, 0);
+INSERT into Valeurs values(5,NULL,0,NULL, 14, 0);
+
+INSERT into Valeurs values(9,NULL,0,NULL, 20, 0);
+INSERT into Valeurs values(10,NULL,6,NULL, 21, 0);
+INSERT into Valeurs values(11,NULL,20,NULL, 22, 0);
+INSERT into Valeurs values(12,NULL,10,NULL, 23, 0);
+INSERT into Valeurs values(13,NULL,20,NULL, 27, 0);
+INSERT into Valeurs values(14,NULL,10,NULL, 28, 0);
+
+INSERT into Valeurs values(15,NULL,0,NULL, 31, 0);
+INSERT into Valeurs values(16,NULL,6,NULL, 32, 0);
+INSERT into Valeurs values(17,NULL,20,NULL, 33, 0);
+INSERT into Valeurs values(18,NULL,10,NULL, 34, 0);
+INSERT into Valeurs values(19,NULL,20,NULL, 38, 0);
+INSERT into Valeurs values(20,NULL,10,NULL, 39, 0);
+
