@@ -18,18 +18,8 @@ void DialogStatistique::getStats() {
     
 	QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery query(db);
-    int nb, i;
+    int i;
         
-    // Nombre de participants au sondage
-    QString req = "select count(*) from Valeurs where valeurVal = 0";
-    query.prepare(req);
-    if(!query.exec()){
-        erreurBdd(query);
-        std::cout << "1" << std::endl;
-        return;
-	}
-	nb = query.next();
-	
 	// tranche d’âge moyenne des consommateurs de yaourts anti-cholestérol
 	QString req_ch = "select AVG(julianday('now')-julianday(datenaisPers)) from Personne where idPers in (select idPers from Valeurs where valeurVal > 0 and idChamps = 26)";
 	query.prepare(req_ch);
@@ -39,7 +29,12 @@ void DialogStatistique::getStats() {
         std::cout << "2" << std::endl;
         return;
 	}
-	int avg_age = query.next()/365;
+	query.next();
+	int avg_age = query.value(0).toInt()/365;
+	
+	QString choleavg = QString::number(avg_age) + " ans";
+	
+	ui->choleavg->setText(choleavg);
 	
 	// nombre d’enfants moyen parmi les foyers consommateurs de yaourts à boire
 	QString req_ki = "select AVG(nbEnfPers) from Personne where idPers in (select idPers from Valeurs where valeurVal > 0 and idChamps = 27)";
@@ -49,7 +44,12 @@ void DialogStatistique::getStats() {
         std::cout << "3" << std::endl;
         return;
 	}
-	int avg_enf = query.next();
+	query.next();
+	int avg_enf = query.value(0).toInt();
+	
+	QString enfavg = QString::number(avg_enf) + " enfants";
+	
+	ui->enfavg->setText(enfavg);
 	
 	// nombre de types de yaourts
 	QString req_mix = "select count(*) from Champs where idSousChamp = 19";
@@ -59,11 +59,11 @@ void DialogStatistique::getStats() {
         std::cout << "4" << std::endl;
         return;
 	}
-	int nb_yaourts = query.next();
-	std::cout << nb_yaourts << std::endl;
+	query.next();
+	int nb_yaourts = query.value(0).toInt();
 	
-	int tab_ya[nb_yaourts];
-	int tab_aubonlait[nb_yaourts];
+	float tab_ya[nb_yaourts];
+	float tab_aubonlait[nb_yaourts];
 	int tranches = 5, j;
 	int tab_tranches[tranches];
 	
@@ -74,37 +74,39 @@ void DialogStatistique::getStats() {
 	for(i = 0; i < nb_yaourts; i++) {
 		// consommation moyenne de tel ou tel type de yaourt (ex. yaourts aux fruits mixés)
 		QString req_y = "select AVG(valeurVal) from Valeurs where idChamps = :id";
-		query.bindValue(":id", 20+i);
 		query.prepare(req_y);
+		query.bindValue(":id", (20+i));
 		if(!query.exec()){
 			erreurBdd(query);
 			std::cout << "5" << std::endl;
 			return;
 		}
-		tab_ya[i] = query.next();
-		std::cout << tab_ya[i] << std::endl;
+		query.next();
+		tab_ya[i] = query.value(0).toFloat();
 		// proportion de yaourts Aubonlait parmi la consommation moyenne de tel type de yaourt
 		QString req_aubonlait = "select AVG(valeurVal) from Valeurs where idChamps = :id";
+		query.prepare(req_aubonlait);
 		query.bindValue(":id", 31+i);
-		query.prepare(req_y);
 		if(!query.exec()){
 			erreurBdd(query);
 			std::cout << "6" << std::endl;
 			return;
 		}
-		tab_aubonlait[i] = query.next();
+		query.next();
+		tab_aubonlait[i] = query.value(0).toFloat();
 		for (j = 0; j < 5; j++) {
 			// rapport entre les revenus du foyer et la consommation totale de yaourts
 			QString req_tranches = "select SUM(valeurVal) from Valeurs where idChamps = :bi and idPers in (select idPers from Personne where idRev = :j)";
+			query.prepare(req_tranches);
 			query.bindValue(":bi", 20+i);
 			query.bindValue(":j", j);
-			query.prepare(req_tranches);
 			if(!query.exec()){
 				erreurBdd(query);
 				std::cout << "7" << std::endl;
 				return;
 			}
-			tab_tranches[j] += query.next();
+			query.next();
+			tab_tranches[j] += query.value(0).toInt();
 		}
 	}
 	
@@ -128,10 +130,41 @@ void DialogStatistique::getStats() {
 	ui->cboire->setText(QS_cboire);
 	ui->calle->setText(QS_calle);
 	
+	QString QS_cnatureau = QString::number(tab_aubonlait[0]) + "%";
+	QString QS_cmorceauxau = QString::number(tab_aubonlait[1]) + "%";
+	QString QS_cmixau = QString::number(tab_aubonlait[2]) + "%";
+	QString QS_caromau = QString::number(tab_aubonlait[3]) + "%";
+	QString QS_cbifau = QString::number(tab_aubonlait[4]) + "%";
+	QString QS_cfruitsau = QString::number(tab_aubonlait[5]) + "%";
+	QString QS_ccholeau = QString::number(tab_aubonlait[6]) + "%";
+	QString QS_cboireau = QString::number(tab_aubonlait[7]) + "%";
+	QString QS_calleau = QString::number(tab_aubonlait[8]) + "%";
+	
+	ui->cnatureau->setText(QS_cnatureau);
+	ui->cmorceauxau->setText(QS_cmorceauxau);
+	ui->cmixau->setText(QS_cmixau);
+	ui->caromau->setText(QS_caromau);
+	ui->cbifau->setText(QS_cbifau);
+	ui->cfruitsau->setText(QS_cfruitsau);
+	ui->ccholeau->setText(QS_ccholeau);
+	ui->cboireau->setText(QS_cboireau);
+	ui->calleau->setText(QS_calleau);
+		
+	QString QS_t1 = ":                " + QString::number(tab_tranches[0]);
+	QString QS_t2 = ":                " + QString::number(tab_tranches[1]);
+	QString QS_t3 = ":                " + QString::number(tab_tranches[2]);
+	QString QS_t4 = ":                " + QString::number(tab_tranches[3]);
+	QString QS_t5 = ":                " + QString::number(tab_tranches[4]);
+	
+	ui->l1->setText(QS_t1);
+	ui->l2->setText(QS_t2);
+	ui->l3->setText(QS_t3);
+	ui->l4->setText(QS_t4);
+	ui->l5->setText(QS_t5);
+	
 	int m, f;
 	
 	// plus de femmes consomment des yaourts allégés que d'hommes ?
-	bool fmtm = 0;
 	
 	QString req_m = "select count(*) from Personne where idPers in (select idPers from Valeurs where valeurVal != 0 and idChamps = 28) and sexePers = 'M'";
 	query.prepare(req_m);
@@ -140,7 +173,8 @@ void DialogStatistique::getStats() {
 		std::cout << "8" << std::endl;
 		return;
 	}
-	m = query.next();
+	query.next();
+	m = query.value(0).toInt();
 	QString req_f = "select count(*) from Personne where idPers in (select idPers from Valeurs where valeurVal != 0 and idChamps = 28) and sexePers = 'F'";
 	query.prepare(req_f);
 	if(!query.exec()){
@@ -148,57 +182,13 @@ void DialogStatistique::getStats() {
 		std::cout << "9" << std::endl;
 		return;
 	}
-	f = query.next();
+	query.next();
+	f = query.value(0).toInt();
 	
-	(f > m) ? fmtm = 1 : fmtm = 0;
+	QString femme;
+	if ((f == 0) || (m == 0)) femme = "Les femmes consomment " + QString::number(f) + " yaourts allégés quand les hommes en consomment " + QString::number(m) + ".";
+	else femme = "Les femmes consomment " + QString::number((float)f/m) + " fois ce que les hommes consomment.";
 	
-	/*QString req_y1 = "select SUM(valeurVal) from Valeurs where idChamps = 20"; // Nature
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y2 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Morceaux
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y3 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Mixés
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y4 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Aromatisés
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y5 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Bifidus
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y6 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Fruits
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y7 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Anti-chol
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y8 = "select SUM(valeurVal) from Valeurs where idChamps = 20";  // Boire
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y9; // Allégé
-	if(!query.exec()){
-        erreurBdd(query);
-        return;
-	}
-	QString req_y10;
-	
-	req = */
+	ui->femme->setText(femme);
 }
 
