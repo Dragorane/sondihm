@@ -39,6 +39,7 @@ CREATE TABLE Formulaire (
   idForm INTEGER PRIMARY KEY, 
   nomForm VARCHAR(200),
   statForm BOOL,
+  descForm TEXT,
   idSoc INT NOT NULL,
   idPers INT NOT NULL,
   FOREIGN KEY (idSoc) REFERENCES Societe (idSoc),
