@@ -24,14 +24,7 @@ void DialogFormulaire::initForm(){
         erreurBdd(query);
     }else{
         query.next();
-        qDebug() << "ca passe ?";
-        qDebug()<<global_id_form;
-        qDebug() <<query.value(query.record().indexOf("nomForm")).toString();
-        qDebug() << "ca passe ?";
-
         ui->lab_titreform->setText(query.value(query.record().indexOf("nomForm")).toString());
-        qDebug() << "ca passe ?";
-
         initChamps();
     }
 
@@ -48,8 +41,6 @@ void DialogFormulaire::initChamps(){
     }else{
         QLineEdit * champ_input;
         QDateEdit * champ_date;
-        QSpinBox * champ_spin;
-        QComboBox * cbbox;
         while(query.next()){
             QLabel * lab= new QLabel();
             lab->setText(query.value(query.record().indexOf("labChamps")).toString());
@@ -68,22 +59,15 @@ void DialogFormulaire::initChamps(){
                 break;
                 // spinbox
                 case 3 :
-                    champ_spin = new QSpinBox();
-                    champ_spin->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
-                    ui->formLayout->addRow(lab,champ_spin);
+                    initspinbox(query.value(query.record().indexOf("idChamps")).toInt(), lab);
                 break;
                 //radiobox
                 case 5 :
                     initSousChamps(query.value(query.record().indexOf("idChamps")).toInt(), lab);
-
                 break;
                 //checkbox
                 case 6 :
-
-                break;
-                //combobox
-                case 7 :
-
+                    initSousChamps(query.value(query.record().indexOf("idChamps")).toInt(), lab);
                 break;
             default:
                 break;
@@ -104,12 +88,54 @@ void DialogFormulaire::initSousChamps(int id,QLabel * lab){
     }else{
         QVBoxLayout * vbox;
         QRadioButton * radiobutt;
+        QCheckBox * checkbox;
         vbox = new QVBoxLayout();
         while(query.next()){
-            radiobutt= new QRadioButton(query.value(query.record().indexOf("labChamps")).toString());
-            radiobutt->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
-            vbox->addWidget(radiobutt);
+            switch (query.value(query.record().indexOf("idTC")).toInt()){
+                //radiobox
+                case 5 :
+                    radiobutt= new QRadioButton(query.value(query.record().indexOf("labChamps")).toString());
+                    radiobutt->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
+                    vbox->addWidget(radiobutt);
+                break;
+                //checkbox
+                case 6 :
+                    checkbox = new QCheckBox(query.value(query.record().indexOf("labChamps")).toString());
+                    checkbox->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
+                    vbox->addWidget(checkbox);
+                break;
+                default:
+                break;
+            }
         }
         ui->formLayout->addRow(lab,vbox);
+    }
+}
+
+void DialogFormulaire::initspinbox(int id, QLabel *lab){
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery query(db);
+    QString req="select * from Champs where idForm=:id and idSousChamp=:idsouschamps order by ordre";
+    query.prepare(req);
+    query.bindValue(":id",global_id_form);
+    query.bindValue(":idsouschamps",id);
+    if(!query.exec()){
+        erreurBdd(query);
+    }else{
+        QSpinBox * champ_spin;
+        if(query.size()==0){
+            champ_spin = new QSpinBox();
+            champ_spin->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
+            ui->formLayout->addRow(lab,champ_spin);
+        }else{
+            QFormLayout * qflayout;
+            qflayout = new QFormLayout();
+            while(query.next()){
+                champ_spin = new QSpinBox();
+                champ_spin->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
+                qflayout->addRow(query.value(query.record().indexOf("labChamps")).toString(),champ_spin);
+            }
+            ui->formLayout->addRow(lab,qflayout);
+        }
     }
 }

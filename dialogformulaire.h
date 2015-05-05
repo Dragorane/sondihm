@@ -19,7 +19,9 @@
 #include <QSpinBox>
 #include <QDateEdit>
 #include <QLabel>
+#include <QCheckBox>
 #include <QComboBox>
+#include <QFormLayout>
 #include "globaldata.h"
 #include "dberrors.h"
 
@@ -40,6 +42,7 @@ private:
     void initForm();
     void initChamps();
     void initSousChamps(int id, QLabel * lab);
+    void initspinbox(int id,QLabel * lab);
 };
 
 #endif // DIALOGFORMULAIRE_H
