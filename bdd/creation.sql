@@ -57,7 +57,7 @@ CREATE TABLE Champs (
   FOREIGN KEY (idSousChamp) REFERENCES Champs (idChamps),
   FOREIGN KEY (idTC) REFERENCES Type_Champs (idTC));  
 
-DROP TABLE IF EXISTS Valeurs ; 
+  DROP TABLE IF EXISTS Valeurs ; 
 CREATE TABLE Valeurs (
   idVal INT INTEGER PRIMARY KEY, 
   contenuVal TEXT,

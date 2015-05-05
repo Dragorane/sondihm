@@ -16,6 +16,7 @@ INSERT into Type_Champs values (3,"spinbox");
 INSERT into Type_Champs values (4,"doublespinbox");
 INSERT into Type_Champs values (5,"radiobox");
 INSERT into Type_Champs values (6,"checkbox");
+INSERT into Type_Champs values (7,"combobox");
 
 INSERT into Personne values(0,0000,"","01/01/2001","H",0,0,0,1,1);
 
