@@ -4,6 +4,7 @@
 #include <iostream>
 
 extern int global_id;
+extern int global_id_form;
 
 #endif
 
