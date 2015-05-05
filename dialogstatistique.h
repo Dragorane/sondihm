@@ -2,6 +2,8 @@
 #define DIALOGSTATISTIQUE_H
 
 #include <QMainWindow>
+#include "dberrors.h"
+#include "globaldata.h"
 
 namespace Ui {
 class DialogStatistique;
@@ -17,6 +19,7 @@ public:
 
 private:
     Ui::DialogStatistique *ui;
+    void getStats();
 };
 
 #endif // DIALOGSTATISTIQUE_H
