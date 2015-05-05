@@ -42,7 +42,6 @@ void DialogFormulaire::initChamps(){
         QLineEdit * champ_input;
         QDateEdit * champ_date;
         while(query.next()){
-            qDebug()<<query.value(query.record().indexOf("idChamps")).toInt();
             QLabel * lab= new QLabel();
             lab->setText(query.value(query.record().indexOf("labChamps")).toString());
             switch (query.value(query.record().indexOf("idTC")).toInt()){
@@ -97,12 +96,14 @@ void DialogFormulaire::initSousChamps(int id,QLabel * lab){
                 case 5 :
                     radiobutt= new QRadioButton(query.value(query.record().indexOf("labChamps")).toString());
                     radiobutt->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
+                    lesradiosbutt.push_back(radiobutt);
                     vbox->addWidget(radiobutt);
                 break;
                 //checkbox
                 case 6 :
                     checkbox = new QCheckBox(query.value(query.record().indexOf("labChamps")).toString());
                     checkbox->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
+                    lescheckbox.push_back(checkbox);
                     vbox->addWidget(checkbox);
                 break;
                 default:
@@ -128,13 +129,16 @@ void DialogFormulaire::initspinbox(int id, QLabel *lab){
             champ_spin = new QSpinBox();
             champ_spin->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
             ui->formLayout->addRow(lab,champ_spin);
+            lesspins.push_back(champ_spin);
         }else{
             QFormLayout * qflayout;
             qflayout = new QFormLayout();
             while(query.next()){
                 champ_spin = new QSpinBox();
+                champ_spin->value();
                 champ_spin->setObjectName(query.value(query.record().indexOf("idChamps")).toString());
                 qflayout->addRow(query.value(query.record().indexOf("labChamps")).toString(),champ_spin);
+                lesspins.push_back(champ_spin);
             }
             ui->formLayout->addRow(lab,qflayout);
         }
@@ -142,5 +146,37 @@ void DialogFormulaire::initspinbox(int id, QLabel *lab){
 }
 
 void DialogFormulaire::on_SubmitButton_clicked(){
-    qDebug()<<"test";
+
+}
+
+void DialogFormulaire::insertcheckbox(){
+    int i;
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery query(db);
+    QString req="Insert into Valeurs (boolval,idChamps,idPers) values (:bool,:champs,:idPers)";
+    for(i=0;i<lescheckbox.size();i++){
+        query.bindValue(":bool",global_id_form);
+        query.bindValue(":champs",global_id_form);
+        query.bindValue(":idPers",global_id);
+
+        lescheckbox.at(i)->isChecked();
+    }
+}
+void DialogFormulaire::insertspinbox(){
+    int i;
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery query(db);
+    QString req="Insert into Valeurs (contenuVal,valeurVal,boolval,idChamps,idPers) values (:contenu)";
+    for(i=0;i<lesspins.size();i++){
+         qDebug() << lesspins.at(i)->objectName();
+    }
+}
+void DialogFormulaire::insertradiobox(){
+ /*   int i;
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery query(db);
+    QString req="Insert into Valeurs (contenuVal,valeurVal,boolval,idChamps,idPers) values (:contenu)";
+    for(i=0;i<lesradiosbutt.size();i++){
+
+    }*/
 }

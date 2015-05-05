@@ -86,5 +86,3 @@ INSERT into Valeurs values(22,NULL,20,NULL, 36, 0);
 INSERT into Valeurs values(23,NULL,10,NULL, 37, 0);
 INSERT into Valeurs values(19,NULL,20,NULL, 38, 0);
 INSERT into Valeurs values(20,NULL,10,NULL, 39, 0);
-
-
