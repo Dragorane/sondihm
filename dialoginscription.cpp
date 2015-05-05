@@ -22,6 +22,10 @@ void DialogInscription::on_CancelButton_clicked()
 
 //initialisation des champs du formulaire avec la bdd
 void DialogInscription::initchamps(){
+	
+	ui->nbPersonneSpinBox->setMinimum(1);
+	ui->nbEnfantSpinBox->setMinimum(0);
+	ui->nbAnimauxSpinBox->setMinimum(0);
 	QSqlQuery query(db);
 	QString req="select * from Revenu";
 	query.prepare(req);
@@ -29,7 +33,6 @@ void DialogInscription::initchamps(){
         erreurBdd(query);
     }else{
 		QStringList revenus;
-		revenus.append("");
 		while (query.next()) {
 			revenus.append(query.value(1).toString() + " - " + query.value(2).toString());
 		}
@@ -41,7 +44,6 @@ void DialogInscription::initchamps(){
         erreurBdd(query);
     }else{
 		QStringList Etat_civil;
-		Etat_civil.append("");
 		while (query.next()) {
 			Etat_civil.append(query.value(1).toString());
 		}
