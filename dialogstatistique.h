@@ -1,6 +1,9 @@
 #ifndef DIALOGSTATISTIQUE_H
 #define DIALOGSTATISTIQUE_H
 
+#include <sstream>
+#include <string>
+#include <iostream>
 #include <QMainWindow>
 #include "dberrors.h"
 #include "globaldata.h"
