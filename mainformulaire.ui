@@ -52,9 +52,9 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>160</y>
+      <y>80</y>
       <width>181</width>
-      <height>181</height>
+      <height>161</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -84,9 +84,9 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>50</y>
+      <y>250</y>
       <width>181</width>
-      <height>101</height>
+      <height>95</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -113,6 +113,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="CreateButton">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>49</y>
+      <width>179</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Créer un formulaire</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -123,12 +136,6 @@
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuListe_des_formulaires_s_lectionnables">
-    <property name="title">
-     <string>Remplir un formulaire</string>
-    </property>
-   </widget>
-   <addaction name="menuListe_des_formulaires_s_lectionnables"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

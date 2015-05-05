@@ -15,6 +15,8 @@ void MainFormulaire::on_StatButton_clicked() {}
 
 void MainFormulaire::on_AnswerButton_clicked() {}
 
+void MainFormulaire::on_CreateButton_clicked() {}
+
 MainFormulaire::~MainFormulaire() {
     delete ui;
 }
