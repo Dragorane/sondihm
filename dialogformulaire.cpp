@@ -144,31 +144,57 @@ void DialogFormulaire::initspinbox(int id, QLabel *lab){
         }
     }
 }
+int DialogFormulaire::recuperIdPers(){
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery query(db);
+    QString req="SELECT idPers from Personne where identifiantPers=:idPers";
+    query.prepare(req);
+    query.bindValue(":idPers",global_id);
+    if(!query.exec()){
+        erreurBdd(query);
+        return -1;
+    }else{
+        query.next();
+        return query.value(0).toInt();
+    }
+}
 
 void DialogFormulaire::on_SubmitButton_clicked(){
-
+    insertcheckbox();
+    insertspinbox();
+    insertradiobox();
 }
 
 void DialogFormulaire::insertcheckbox(){
     int i;
+    int id=recuperIdPers();
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery query(db);
     QString req="Insert into Valeurs (boolval,idChamps,idPers) values (:bool,:champs,:idPers)";
     for(i=0;i<lescheckbox.size();i++){
-        query.bindValue(":bool",global_id_form);
-        query.bindValue(":champs",global_id_form);
-        query.bindValue(":idPers",global_id);
-
-        lescheckbox.at(i)->isChecked();
+        query.prepare(req);
+        query.bindValue(":bool",lescheckbox.at(i)->isChecked());
+        query.bindValue(":champs",lescheckbox.at(i)->objectName());
+        query.bindValue(":idPers",id);
+        if(!query.exec()){
+            erreurBdd(query);
+        }
     }
 }
 void DialogFormulaire::insertspinbox(){
     int i;
+    int id=recuperIdPers();
     QSqlDatabase db = QSqlDatabase::database();
     QSqlQuery query(db);
-    QString req="Insert into Valeurs (contenuVal,valeurVal,boolval,idChamps,idPers) values (:contenu)";
+    QString req="Insert into Valeurs (valeurVal,idChamps,idPers) values (:int,:champs,:idPers)";
     for(i=0;i<lesspins.size();i++){
-         qDebug() << lesspins.at(i)->objectName();
+        query.prepare(req);
+        query.bindValue(":int",lesspins.at(i)->value());
+        query.bindValue(":champs",lesspins.at(i)->objectName());
+        query.bindValue(":idPers",id);
+        if(!query.exec()){
+            erreurBdd(query);
+        }
     }
 }
 void DialogFormulaire::insertradiobox(){
@@ -180,3 +206,4 @@ void DialogFormulaire::insertradiobox(){
 
     }*/
 }
+

@@ -59,7 +59,7 @@ CREATE TABLE Champs (
 
   DROP TABLE IF EXISTS Valeurs ; 
 CREATE TABLE Valeurs (
-  idVal INT INTEGER PRIMARY KEY, 
+  idVal INTEGER PRIMARY KEY, 
   contenuVal TEXT,
   valeurVal INT,
   boolval bool,

@@ -50,6 +50,7 @@ private:
     void insertcheckbox();
     void insertspinbox();
     void insertradiobox();
+    int recuperIdPers();
 
 private slots:
     void on_SubmitButton_clicked();
