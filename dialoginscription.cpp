@@ -49,7 +49,7 @@ void DialogInscription::initchamps(){
 	}
 }
 
-//ajout d'un sondé à la base de donnée
+//ajout d'un sondé à la base de données
 void DialogInscription::on_SubmitButton_clicked()
 {
 	QSqlQuery query(db);

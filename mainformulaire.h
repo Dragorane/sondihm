@@ -15,6 +15,11 @@ public:
     explicit MainFormulaire(QWidget *parent = 0);
     ~MainFormulaire();
 
+private slots:
+    void on_CancelButton_clicked();
+    void on_StatButton_clicked();
+    void on_AnswerButton_clicked();
+
 private:
     Ui::MainFormulaire *ui;
 };

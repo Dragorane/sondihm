@@ -1,6 +1,4 @@
 #include "dialogaccueil.h"
-#include "ui_dialogaccueil.h"
-#include "dialoggestioncompte.h"
 
 DialogAccueil::DialogAccueil(QWidget *parent) :
     QMainWindow(parent),
@@ -17,4 +15,9 @@ DialogAccueil::~DialogAccueil()
 void DialogAccueil::slotgestioncompte(){
     DialogGestionCompte *dialog=new DialogGestionCompte;
     dialog->show();
+}
+
+void DialogAccueil::slotmainform() {
+	MainFormulaire *form=new MainFormulaire;
+	form->show();
 }

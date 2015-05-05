@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include "mainformulaire.h"
+#include "ui_dialogaccueil.h"
+#include "dialoggestioncompte.h"
+
 namespace Ui {
 class DialogAccueil;
 }
@@ -20,7 +24,7 @@ private:
 
 private slots:
     void slotgestioncompte();
-
+    void slotmainform();
 };
 
 #endif // DIALOGACCUEIL_H
