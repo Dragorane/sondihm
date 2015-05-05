@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     dialoggestioncompte.cpp \
     dberrors.cpp \
     globaldata.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    plotdialog.cpp
 
 HEADERS  += mainwindow.h \
     dialoginscription.h \
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h \
     dberrors.h \
     globaldata.h \
     dialoggestioncompte.h \
-    qcustomplot.h
+    qcustomplot.h \
+    plotdialog.h
 
 FORMS    += mainwindow.ui \
     dialoginscription.ui \
@@ -46,4 +48,5 @@ FORMS    += mainwindow.ui \
     dialogformulaire.ui \
     dialogstatistique.ui \
     dialogaccueil.ui \
-    dialoggestioncompte.ui
+    dialoggestioncompte.ui \
+    plotdialog.ui
