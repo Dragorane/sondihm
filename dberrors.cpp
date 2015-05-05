@@ -17,3 +17,8 @@ void erreurId() {
     QMessageBox::critical(0, qApp->trUtf8("Identifiant de connexion invalide."),
             qApp->trUtf8("Veuillez saisir un identifiant de connexion valide."), QMessageBox::Cancel);
 }
+
+void erreurAccesForm(){
+    QMessageBox::critical(0, qApp->trUtf8("Formulaire déjà répondu."),
+            qApp->trUtf8("Vous avez déjà répondu à ce formulaire."), QMessageBox::Cancel);
+}

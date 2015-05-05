@@ -37,7 +37,7 @@ void DialogCreateForm::initType(){
             types_bd=types_bd2;
             lestypes = new QComboBox();
             lestypes->addItems(types_bd);
-            ui->tableWidget->setCellWidget(1,1,lestypes);
+            ui->tableWidget->setCellWidget(i,1,lestypes);
         }
     }
 }

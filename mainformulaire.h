@@ -29,6 +29,7 @@ private slots:
     void on_StatButton_clicked();
     void on_AnswerButton_clicked();
     void on_CreateButton_clicked();
+    int recuperIdPers();
 
 private:
     Ui::MainFormulaire *ui;
