@@ -29,32 +29,32 @@ INSERT into Champs values(4,"Danone",1,0,1,6);
 INSERT into Champs values(5,"Aubonlait",1,0,1,6);
 
 INSERT into Champs values(10, "Combien de fois avez-vous acheté des yaourts de chacune de ses marques au cours des 6 derniers mois ?",2,0,NULL,3);
-INSERT into Champs values(11,"Nestlé",1,0,10,3);
-INSERT into Champs values(12,"Yoplait",1,0,10,3);
-INSERT into Champs values(13,"Danone",1,0,10,3);
-INSERT into Champs values(14,"Aubonlait",1,0,10,3);
+INSERT into Champs values(11,"Nestlé",2,0,10,3);
+INSERT into Champs values(12,"Yoplait",2,0,10,3);
+INSERT into Champs values(13,"Danone",2,0,10,3);
+INSERT into Champs values(14,"Aubonlait",2,0,10,3);
 
-INSERT into Champs values(19, "Combien consommez-vous de yaourts de chaque type par mois ?",1,1,NULL,3);
-INSERT into Champs values(20, "Nature", 1, 0, 19, 3);
-INSERT into Champs values(21, "Aux fruits avec morceaux", 1, 0, 19, 3);
-INSERT into Champs values(22, "Mixés/Brassés", 1, 0, 19, 3);
-INSERT into Champs values(23, "Aromatisés", 1, 0, 19, 3);
-INSERT into Champs values(24, "Bifidus Nature", 1, 0, 19, 3);
-INSERT into Champs values(25, "Aux Fruits", 1, 0, 19, 3);
-INSERT into Champs values(26, "Anti-Cholesterol", 1, 0, 19, 3);
-INSERT into Champs values(27, "À boire", 1, 0, 19, 3);
-INSERT into Champs values(28, "Allégés", 1, 0, 19, 3);
+INSERT into Champs values(19, "Combien consommez-vous de yaourts de chaque type par mois ?",3,0,NULL,3);
+INSERT into Champs values(20, "Nature", 3, 0, 19, 3);
+INSERT into Champs values(21, "Aux fruits avec morceaux", 3, 0, 19, 3);
+INSERT into Champs values(22, "Mixés/Brassés", 3, 0, 19, 3);
+INSERT into Champs values(23, "Aromatisés", 3, 0, 19, 3);
+INSERT into Champs values(24, "Bifidus Nature", 3, 0, 19, 3);
+INSERT into Champs values(25, "Aux Fruits", 3, 0, 19, 3);
+INSERT into Champs values(26, "Anti-Cholesterol", 3, 0, 19, 3);
+INSERT into Champs values(27, "À boire", 3, 0, 19, 3);
+INSERT into Champs values(28, "Allégés", 3, 0, 19, 3);
 
-INSERT into Champs values(30, "Quel pourcentage de ceux-ci étaient de marque Aubonlait ?", 1, 0, NULL, 3);
-INSERT into Champs values(31, "Nature", 1, 0, 30, 3);
-INSERT into Champs values(32, "Aux fruits avec morceaux", 1, 0, 30, 3);
-INSERT into Champs values(33, "Mixés/Brassés", 1, 0, 30, 3);
-INSERT into Champs values(34, "Aromatisés", 1, 0, 30, 3);
-INSERT into Champs values(35, "Bifidus Nature", 1, 0, 19, 3);
-INSERT into Champs values(36, "Aux Fruits", 1, 0, 19, 3);
-INSERT into Champs values(37, "Anti-Cholesterol", 1, 0, 19, 3);
-INSERT into Champs values(38, "À boire", 1, 0, 30, 3);
-INSERT into Champs values(39, "Allégés", 1, 0, 30, 3);
+INSERT into Champs values(30, "Quel pourcentage de ceux-ci étaient de marque Aubonlait ?", 4, 0, NULL, 3);
+INSERT into Champs values(31, "Nature", 4, 0, 30, 3);
+INSERT into Champs values(32, "Aux fruits avec morceaux", 4, 0, 30, 3);
+INSERT into Champs values(33, "Mixés/Brassés", 4, 0, 30, 3);
+INSERT into Champs values(34, "Aromatisés", 4, 0, 30, 3);
+INSERT into Champs values(35, "Bifidus Nature", 4, 0, 30, 3);
+INSERT into Champs values(36, "Aux Fruits", 4, 0, 30, 3);
+INSERT into Champs values(37, "Anti-Cholesterol", 4, 0, 30, 3);
+INSERT into Champs values(38, "À boire", 4, 0, 30, 3);
+INSERT into Champs values(39, "Allégés", 4, 0, 30, 3);
 
 --id, txt, int, bool, idchamps, idpers,
 INSERT into Valeurs values(1,NULL,NULL,1, 2, 0);

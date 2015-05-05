@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>729</width>
-    <height>585</height>
+    <width>971</width>
+    <height>771</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>691</width>
-      <height>78</height>
+      <width>961</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -48,9 +48,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
-      <width>701</width>
-      <height>411</height>
+      <y>40</y>
+      <width>951</width>
+      <height>641</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -62,8 +62,8 @@
    <widget class="QPushButton" name="CancelButton">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>510</y>
+      <x>750</x>
+      <y>700</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -75,8 +75,8 @@
    <widget class="QPushButton" name="SubmitButton">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>510</y>
+      <x>850</x>
+      <y>700</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -91,7 +91,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>729</width>
+     <width>971</width>
      <height>20</height>
     </rect>
    </property>

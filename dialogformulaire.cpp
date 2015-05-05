@@ -42,6 +42,7 @@ void DialogFormulaire::initChamps(){
         QLineEdit * champ_input;
         QDateEdit * champ_date;
         while(query.next()){
+            qDebug()<<query.value(query.record().indexOf("idChamps")).toInt();
             QLabel * lab= new QLabel();
             lab->setText(query.value(query.record().indexOf("labChamps")).toString());
             switch (query.value(query.record().indexOf("idTC")).toInt()){
