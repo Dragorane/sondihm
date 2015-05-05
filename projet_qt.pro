@@ -6,6 +6,7 @@
 
 QT       += sql
 QT       += core gui
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,7 +24,8 @@ SOURCES += main.cpp\
     dialogaccueil.cpp \
     dialoggestioncompte.cpp \
     dberrors.cpp \
-    globaldata.cpp
+    globaldata.cpp \
+    qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
     dialoginscription.h \
@@ -34,7 +36,8 @@ HEADERS  += mainwindow.h \
     dialogaccueil.h \
     dberrors.h \
     globaldata.h \
-    dialoggestioncompte.h
+    dialoggestioncompte.h \
+    qcustomplot.h
 
 FORMS    += mainwindow.ui \
     dialoginscription.ui \
