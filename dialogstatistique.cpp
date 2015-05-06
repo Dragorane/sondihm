@@ -109,16 +109,15 @@ void DialogStatistique::getStats() {
 			tab_tranches[j] += query.value(0).toInt();
 		}
 	}
-	
-	QString QS_cnature = "Nature : " + QString::number(tab_ya[0]);
-	QString QS_cmorceaux = "Avec morceaux : " + QString::number(tab_ya[1]);
-	QString QS_cmix = "Mixé/Brassé : " + QString::number(tab_ya[2]);
-	QString QS_carom = "Aromatisé : " + QString::number(tab_ya[3]);
-	QString QS_cbif = "Au bifidus : " + QString::number(tab_ya[4]);
-	QString QS_cfruits = "Aux fruits : " + QString::number(tab_ya[5]);
-	QString QS_cchol = "Anti-cholestérol : " + QString::number(tab_ya[6]);
-	QString QS_cboire = "À boire : " + QString::number(tab_ya[7]);
-	QString QS_calle = "Allégé : " + QString::number(tab_ya[8]);
+    QString QS_cnature = QString::fromUtf8("Nature : ") + QString::number(tab_ya[0]);
+    QString QS_cmorceaux = QString::fromUtf8("Avec morceaux : ") + QString::number(tab_ya[1]);
+    QString QS_cmix = QString::fromUtf8("Mixé/Brassé : ") + QString::number(tab_ya[2]);
+    QString QS_carom = QString::fromUtf8("Aromatisé : ") + QString::number(tab_ya[3]);
+    QString QS_cbif = QString::fromUtf8("Au bifidus : ") + QString::number(tab_ya[4]);
+    QString QS_cfruits = QString::fromUtf8("Aux fruits : ") + QString::number(tab_ya[5]);
+    QString QS_cchol = QString::fromUtf8("Anti-cholestérol : ") + QString::number(tab_ya[6]);
+    QString QS_cboire = QString::fromUtf8("À boire : ") + QString::number(tab_ya[7]);
+    QString QS_calle = QString::fromUtf8("Allégé : ") + QString::number(tab_ya[8]);
 	
 	ui->cnature->setText(QS_cnature);
 	ui->cmorceaux->setText(QS_cmorceaux);
@@ -186,8 +185,8 @@ void DialogStatistique::getStats() {
 	f = query.value(0).toInt();
 	
 	QString femme;
-	if ((f == 0) || (m == 0)) femme = "Les femmes consomment " + QString::number(f) + " yaourts allégés quand les hommes en consomment " + QString::number(m) + ".";
-	else femme = "Les femmes consomment " + QString::number((float)f/m) + " fois ce que les hommes consomment.";
+    if ((f == 0) || (m == 0)) femme = QString::fromUtf8("Les femmes consomment ") + QString::number(f) + QString::fromUtf8(" yaourts allégés quand les hommes en consomment ") + QString::number(m) + ".";
+    else femme = QString::fromUtf8("Les femmes consomment ") + QString::number((float)f/m) + QString::fromUtf8(" fois ce que les hommes consomment.");
 	
 	ui->femme->setText(femme);
 }
