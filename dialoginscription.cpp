@@ -61,7 +61,7 @@ void DialogInscription::on_SubmitButton_clicked()
 	if(id!=0){
 		query.bindValue(":id",id);
 	}
-	query.bindValue(":date",ui->dateNais->date().toString("yyyy/MM/dd"));
+    query.bindValue(":date",ui->dateNais->date().toString("yyyy-MM-dd"));
 	if(ui->sexeCb->currentText() == "Femme"){
 		query.bindValue(":sexe","F");
 	}else{

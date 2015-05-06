@@ -20,8 +20,20 @@ void DialogStatistique::getStats() {
     QSqlQuery query(db);
     int i;
         
-	// tranche d’âge moyenne des consommateurs de yaourts anti-cholestérol
-	QString req_ch = "select AVG(julianday('now')-julianday(datenaisPers)) from Personne where idPers in (select idPers from Valeurs where valeurVal > 0 and idChamps = 26)";
+    // tranche d’âge moyenne des consommateurs de yaourts anti-cholestérol
+
+    QString req_date = "select julianday('now')";
+    query.prepare(req_date);
+    if(!query.exec()){
+        erreurBdd(query);
+        std::cout << "2" << std::endl;
+        return;
+    }
+
+    query.next();
+    float c_date = query.value(0).toFloat();
+
+    QString req_ch = "select AVG(julianday(datenaisPers)) from Personne where idPers in (select idPers from Valeurs where valeurVal > 0 and idChamps = 26)";
 	query.prepare(req_ch);
 	
 	if(!query.exec()){
@@ -30,10 +42,10 @@ void DialogStatistique::getStats() {
         return;
 	}
 	query.next();
-	int avg_age = query.value(0).toInt()/365;
-	
+    float avg_age = (c_date-query.value(0).toFloat())/365.0;
+    qDebug()<<query.value(0).toInt();
+
 	QString choleavg = QString::number(avg_age) + " ans";
-	
 	ui->choleavg->setText(choleavg);
 	
 	// nombre d’enfants moyen parmi les foyers consommateurs de yaourts à boire

@@ -18,7 +18,7 @@ INSERT into Type_Champs values (5,"radiobox");
 INSERT into Type_Champs values (6,"checkbox");
 INSERT into Type_Champs values (7,"combobox");
 
-INSERT into Personne values(0,0000,"","01/01/2001","H",0,0,0,1,1);
+INSERT into Personne values(0,0000,"","2001-01-01","H",0,0,0,1,1);
 
 INSERT into Formulaire values(0,"Consommation de yaourts du foyer",1,"",1,0);
 
@@ -55,34 +55,3 @@ INSERT into Champs values(36, "Aux Fruits", 4, 0, 30, 3);
 INSERT into Champs values(37, "Anti-Cholesterol", 4, 0, 30, 3);
 INSERT into Champs values(38, "À boire", 4, 0, 30, 3);
 INSERT into Champs values(39, "Allégés", 4, 0, 30, 3);
-
---id, txt, int, bool, idchamps, idpers,
-INSERT into Valeurs values(1,NULL,NULL,1, 2, 0);
-INSERT into Valeurs values(2,NULL,NULL,0, 3, 0);
-INSERT into Valeurs values(3,NULL,NULL,1, 4, 0);
-INSERT into Valeurs values(4,NULL,NULL,0, 5, 0);
-
-INSERT into Valeurs values(6,NULL,6,NULL, 11, 0);
-INSERT into Valeurs values(7,NULL,20,NULL, 12, 0);
-INSERT into Valeurs values(8,NULL,10,NULL, 13, 0);
-INSERT into Valeurs values(5,NULL,0,NULL, 14, 0);
-
-INSERT into Valeurs values(9,NULL,0,NULL, 20, 0);
-INSERT into Valeurs values(10,NULL,6,NULL, 21, 0);
-INSERT into Valeurs values(11,NULL,20,NULL, 22, 0);
-INSERT into Valeurs values(12,NULL,10,NULL, 23, 0);
-INSERT into Valeurs values(15,NULL,6,NULL, 24, 0);
-INSERT into Valeurs values(16,NULL,20,NULL, 25, 0);
-INSERT into Valeurs values(17,NULL,10,NULL, 26, 0);
-INSERT into Valeurs values(13,NULL,20,NULL, 27, 0);
-INSERT into Valeurs values(14,NULL,10,NULL, 28, 0);
-
-INSERT into Valeurs values(30,NULL,0,NULL, 31, 0);
-INSERT into Valeurs values(31,NULL,6,NULL, 32, 0);
-INSERT into Valeurs values(32,NULL,20,NULL, 33, 0);
-INSERT into Valeurs values(18,NULL,10,NULL, 34, 0);
-INSERT into Valeurs values(21,NULL,6,NULL, 35, 0);
-INSERT into Valeurs values(22,NULL,20,NULL, 36, 0);
-INSERT into Valeurs values(23,NULL,10,NULL, 37, 0);
-INSERT into Valeurs values(19,NULL,20,NULL, 38, 0);
-INSERT into Valeurs values(20,NULL,10,NULL, 39, 0);

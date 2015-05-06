@@ -81,7 +81,7 @@ void DialogGestionCompte::on_SubmitButton_clicked()
     QString req="Update Personne set datenaisPers=:date, sexePers=:sexe, nbhabPers=:nbhabpers, nbEnfPers=:nbenf, nbAnimPers=:nbanim, idEc=:idEc, idRev=:idRev where identifiantPers=:id";
     query.prepare(req);
     query.bindValue(":id",global_id);
-    query.bindValue(":date",ui->dateNais->date().toString("yyyy/MM/dd"));
+    query.bindValue(":date",ui->dateNais->date().toString("yyyy-MM-dd"));
     if(ui->sexeCb->currentText() == "Femme"){
         query.bindValue(":sexe","F");
     }else{
