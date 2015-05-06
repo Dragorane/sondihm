@@ -1162,7 +1162,7 @@
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
    <receiver>DialogCreateForm</receiver>
-   <slot>validNewForm()</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>316</x>
