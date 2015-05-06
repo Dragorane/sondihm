@@ -163,6 +163,7 @@ void DialogFormulaire::on_SubmitButton_clicked(){
     insertcheckbox();
     insertspinbox();
     insertradiobox();
+		this->close();
 }
 
 void DialogFormulaire::insertcheckbox(){
