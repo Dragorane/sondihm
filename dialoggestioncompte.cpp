@@ -59,7 +59,6 @@ void DialogGestionCompte::initchamps(){
             erreurBdd(query);
         }else{
             QStringList Etat_civil;
-            Etat_civil.append("");
             while (query.next()) {
                 Etat_civil.append(query.value(1).toString());
             }
