@@ -32,7 +32,6 @@ void MainFormulaire::on_AnswerButton_clicked() {
         erreurBdd(query);
     }else{
         query.next();
-        qDebug() << query.value(0).toInt();
 
         if ((query.value(0).toInt())>0){
             erreurAccesForm();

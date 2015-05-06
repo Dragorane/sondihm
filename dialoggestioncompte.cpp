@@ -48,7 +48,6 @@ void DialogGestionCompte::initchamps(){
             erreurBdd(query);
         }else{
             QStringList revenus;
-            revenus.append("");
             while (query.next()) {
                 revenus.append(query.value(1).toString() + " - " + query.value(2).toString());
             }

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Création d'un formulaire</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -1101,7 +1101,7 @@
       <row/>
       <column>
        <property name="text">
-        <string>Labelle</string>
+        <string>Label</string>
        </property>
       </column>
       <column>

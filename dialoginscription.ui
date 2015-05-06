@@ -68,7 +68,7 @@
          </size>
         </property>
         <property name="title">
-         <string>Informations personnels</string>
+         <string>Informations personnelles</string>
         </property>
         <widget class="QWidget" name="formLayoutWidget">
          <property name="geometry">
